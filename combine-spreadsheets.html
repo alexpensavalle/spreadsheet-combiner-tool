@@ -53,44 +53,177 @@
             padding: 30px;
             margin: 25px 0;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
         .upload-section.dragover {
             border-color: #007bff;
             background: #e3f2fd;
+            transform: scale(1.02);
         }
 
-        .file-input-group {
-            margin: 15px 0;
+        .upload-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-header h3 {
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .add-file-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .add-file-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .file-list {
+            margin-top: 20px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 15px;
+            margin: 10px 0;
             background: white;
             border-radius: 8px;
             border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        .file-input-group label {
-            display: block;
+        .file-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .file-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #007bff;
+        }
+
+        .file-details {
+            flex: 1;
+        }
+
+        .file-name {
             font-weight: bold;
-            margin-bottom: 8px;
             color: #2c3e50;
+            margin-bottom: 5px;
         }
 
-        .file-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            background: white;
+        .file-meta {
+            font-size: 0.9em;
+            color: #6c757d;
         }
 
         .file-status {
-            margin-top: 5px;
-            font-size: 0.9em;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
         }
 
-        .status-ready { color: #28a745; }
-        .status-missing { color: #dc3545; }
-        .status-optional { color: #6c757d; }
+        .status-ready {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-processing {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-complete {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .drop-zone {
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px 0;
+            text-align: center;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.active {
+            background: #e3f2fd;
+            border-color: #0056b3;
+        }
+
+        .drop-zone h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .drop-zone p {
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .browse-btn {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .browse-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
         .stats-grid {
             display: grid;
@@ -99,29 +232,50 @@
             margin: 30px 0;
         }
 
-        .stat-card {
+        .ai-summary-section {
+            margin: 30px 0;
+        }
+
+        .summary-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             transition: transform 0.3s ease;
         }
 
-        .stat-card:hover {
+        .summary-card:hover {
             transform: translateY(-5px);
         }
 
-        .stat-card h3 {
-            font-size: 2.8em;
-            margin: 0;
+        .summary-card h3 {
+            font-size: 1.8em;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .summary-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .summary-content p {
+            margin: 15px 0;
+        }
+
+        .summary-content .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
             font-weight: bold;
         }
 
-        .stat-card p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-            font-size: 1.1em;
+        .summary-content .metric {
+            color: #ffd700;
+            font-weight: bold;
         }
 
         .progress-section {
@@ -213,10 +367,10 @@
             color: #0c5460;
         }
 
-        .alert-warning {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            color: #856404;
-            border-color: #ffeaa7;
+        .alert-success {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border-color: #c3e6cb;
         }
 
         .log-section {
@@ -263,6 +417,10 @@
             background: #f8f9fa;
         }
 
+        .hidden {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -285,75 +443,56 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .upload-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🗂️ Complete Master Contact Database Generator</h1>
-            <p>Upload your contact files and generate a unified database with 22,000+ contacts</p>
+            <h1>🗂️ Flexible Master Contact Database Generator</h1>
+            <p>Upload any contact files from your computer and generate a unified database</p>
         </div>
 
-        <div class="upload-section" id="uploadSection">
-            <h3>📁 Upload Your Contact Files</h3>
-            <p>Select your contact files below. The tool will process any combination of files you provide.</p>
+        <div class="upload-section">
+            <div class="upload-header">
+                <h3>📁 Upload Your Contact Files</h3>
+                <button class="add-file-btn" onclick="addFileInput()" title="Add another file">+</button>
+            </div>
             
-            <div class="file-input-group">
-                <label for="sudFile">Community SUD Workers List by Community.xlsx</label>
-                <input type="file" id="sudFile" class="file-input" accept=".xlsx,.xls" />
-                <div class="file-status status-missing" id="sudStatus">No file selected</div>
+            <div class="drop-zone" id="dropZone">
+                <h4>📎 Drag & Drop Files Here</h4>
+                <p>Or click below to browse your computer</p>
+                <button class="browse-btn" onclick="triggerFileInput()">📂 Browse Files</button>
+                <input type="file" id="hiddenFileInput" class="hidden" multiple accept=".xlsx,.xls,.docx,.txt,.csv" onchange="handleFileSelect(event)">
             </div>
 
-            <div class="file-input-group">
-                <label for="newContactsFile">new contacts 1.docx</label>
-                <input type="file" id="newContactsFile" class="file-input" accept=".docx,.txt" />
-                <div class="file-status status-missing" id="newContactsStatus">No file selected</div>
-            </div>
-
-            <div class="file-input-group">
-                <label for="nhContactsFile">hospital contacts nh.docx</label>
-                <input type="file" id="nhContactsFile" class="file-input" accept=".docx,.txt" />
-                <div class="file-status status-missing" id="nhContactsStatus">No file selected</div>
-            </div>
-
-            <div class="file-input-group">
-                <label for="justinFile">Justin Report 3.xls</label>
-                <input type="file" id="justinFile" class="file-input" accept=".xlsx,.xls" />
-                <div class="file-status status-missing" id="justinStatus">No file selected</div>
-            </div>
-
-            <div class="file-input-group">
-                <label for="reportFile">report1666054943665 2 1.xlsx</label>
-                <input type="file" id="reportFile" class="file-input" accept=".xlsx,.xls" />
-                <div class="file-status status-missing" id="reportStatus">No file selected</div>
+            <div class="file-list" id="fileList">
+                <!-- Uploaded files will appear here -->
             </div>
         </div>
 
-        <div class="alert alert-warning">
-            <strong>⚠️ File Upload Instructions:</strong><br>
-            • Upload any combination of your contact files above<br>
-            • Excel files (.xlsx, .xls) and Word documents (.docx) are supported<br>
-            • The tool will process whatever files you provide and combine them into one master database<br>
-            • Large files may take several minutes to process
+        <div class="alert alert-success" style="display: none;" id="uploadAlert">
+            <strong>✅ Files Ready!</strong><br>
+            <span id="fileCount">0</span> file(s) uploaded and ready for processing.
         </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3 id="totalCount">0</h3>
-                <p>Total Contacts</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="providerCount">0</h3>
-                <p>Healthcare Providers</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="patientCount">0</h3>
-                <p>Patient Records</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="phoneCount">0</h3>
-                <p>With Phone Numbers</p>
+        <div class="ai-summary-section" id="aiSummary" style="display: none;">
+            <div class="summary-card">
+                <h3>🤖 AI Data Analysis Summary</h3>
+                <div class="summary-content" id="summaryContent">
+                    <p>Upload and process your files to see an intelligent analysis of your contact database...</p>
+                </div>
             </div>
         </div>
 
@@ -362,7 +501,7 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar" style="width: 0%">Ready to Start</div>
             </div>
-            <div id="progressText">Upload your files and click "Generate Complete Database" to begin...</div>
+            <div id="progressText">Upload your files above and click "Generate Complete Database" to begin...</div>
         </div>
 
         <div class="button-group">
@@ -378,17 +517,16 @@
         </div>
 
         <div class="alert alert-info">
-            <strong>💡 What This Does:</strong><br>
-            • Extracts every single contact from your uploaded files<br>
-            • Cleans and standardizes phone numbers, emails, and names<br>
-            • Categorizes contacts by type (SUD Workers, Healthcare Providers, Patients)<br>
-            • Preserves source file tracking and insurance information<br>
-            • Creates downloadable Excel file with proper formatting
+            <strong>💡 Supported File Types:</strong><br>
+            • Excel files (.xlsx, .xls) - Patient databases, contact lists<br>
+            • Word documents (.docx) - Contact information, provider lists<br>
+            • Text files (.txt) - Any contact data in text format<br>
+            • CSV files (.csv) - Spreadsheet data in comma-separated format
         </div>
 
         <div class="log-section" id="processingLog">
-            <div>Master Contact Database Generator v3.0</div>
-            <div>Upload your files above and click "Generate Complete Database"</div>
+            <div>Master Contact Database Generator v4.0</div>
+            <div>Upload any contact files using the + button or drag & drop</div>
             <div>=====================================</div>
         </div>
 
@@ -415,7 +553,8 @@
         // Global variables
         let allContacts = [];
         let isProcessing = false;
-        let uploadedFiles = {};
+        let uploadedFiles = new Map();
+        let fileCounter = 0;
 
         // Helper functions for data cleaning
         function cleanPhoneNumber(phone) {
@@ -472,47 +611,251 @@
             }
         }
 
-        // Statistics update function
-        function updateStats() {
+        // Generate AI-powered data summary
+        function generateAISummary() {
             try {
+                if (allContacts.length === 0) {
+                    document.getElementById('aiSummary').style.display = 'none';
+                    return;
+                }
+
+                const summarySection = document.getElementById('aiSummary');
+                const summaryContent = document.getElementById('summaryContent');
+                
+                // Calculate key metrics
+                const totalContacts = allContacts.length;
                 const providers = allContacts.filter(c => c.category !== 'Patient/Client').length;
                 const patients = allContacts.filter(c => c.category === 'Patient/Client').length;
                 const withPhones = allContacts.filter(c => c.phone && c.phone.trim()).length;
-
-                document.getElementById('totalCount').textContent = allContacts.length.toLocaleString();
-                document.getElementById('providerCount').textContent = providers.toLocaleString();
-                document.getElementById('patientCount').textContent = patients.toLocaleString();
-                document.getElementById('phoneCount').textContent = withPhones.toLocaleString();
+                const withEmails = allContacts.filter(c => c.email && c.email.trim()).length;
+                const phoneRate = ((withPhones / totalContacts) * 100).toFixed(1);
+                const emailRate = ((withEmails / totalContacts) * 100).toFixed(1);
+                
+                // Analyze sources
+                const sources = {};
+                allContacts.forEach(contact => {
+                    sources[contact.source] = (sources[contact.source] || 0) + 1;
+                });
+                const sourceCount = Object.keys(sources).length;
+                const largestSource = Object.entries(sources).sort((a, b) => b[1] - a[1])[0];
+                
+                // Analyze organizations
+                const orgs = {};
+                allContacts.forEach(contact => {
+                    if (contact.organization && contact.organization !== 'Unknown' && contact.organization !== 'Unknown Insurance') {
+                        orgs[contact.organization] = (orgs[contact.organization] || 0) + 1;
+                    }
+                });
+                const uniqueOrgs = Object.keys(orgs).length;
+                
+                // Analyze categories
+                const categories = {};
+                allContacts.forEach(contact => {
+                    categories[contact.category] = (categories[contact.category] || 0) + 1;
+                });
+                
+                // Generate intelligent summary
+                let summary = `<p>Your master contact database has been successfully created from <span class="highlight">${sourceCount} source files</span>, consolidating <span class="metric">${totalContacts.toLocaleString()} contacts</span> into a unified system.</p>`;
+                
+                // Data composition analysis
+                if (patients > providers) {
+                    summary += `<p>The database is <span class="highlight">patient-focused</span>, containing <span class="metric">${patients.toLocaleString()} patient records</span> and <span class="metric">${providers} healthcare providers</span>. This suggests a comprehensive patient management system with supporting provider network data.</p>`;
+                } else if (providers > patients) {
+                    summary += `<p>The database is <span class="highlight">provider-focused</span>, containing <span class="metric">${providers} healthcare providers</span> and <span class="metric">${patients.toLocaleString()} patient records</span>. This indicates a robust healthcare provider directory with patient contact information.</p>`;
+                } else {
+                    summary += `<p>The database shows a <span class="highlight">balanced mix</span> of <span class="metric">${providers} healthcare providers</span> and <span class="metric">${patients.toLocaleString()} patient records</span>, indicating comprehensive healthcare network coverage.</p>`;
+                }
+                
+                // Data quality analysis
+                if (phoneRate >= 80) {
+                    summary += `<p><span class="highlight">Excellent contact quality:</span> <span class="metric">${phoneRate}%</span> of records include phone numbers, ensuring strong communication capabilities across your network.</p>`;
+                } else if (phoneRate >= 60) {
+                    summary += `<p><span class="highlight">Good contact quality:</span> <span class="metric">${phoneRate}%</span> of records have phone numbers. Consider data enrichment for the remaining ${(100 - phoneRate).toFixed(1)}% to improve communication reach.</p>`;
+                } else {
+                    summary += `<p><span class="highlight">Contact quality opportunity:</span> Only <span class="metric">${phoneRate}%</span> of records have phone numbers. Data enrichment could significantly improve communication capabilities.</p>`;
+                }
+                
+                // Source analysis
+                if (largestSource) {
+                    const sourcePercent = ((largestSource[1] / totalContacts) * 100).toFixed(1);
+                    summary += `<p>Your largest data source, <span class="highlight">${largestSource[0]}</span>, contributes <span class="metric">${sourcePercent}%</span> (${largestSource[1].toLocaleString()} contacts) of your total database.</p>`;
+                }
+                
+                // Organizational diversity
+                if (uniqueOrgs > 100) {
+                    summary += `<p>The database demonstrates <span class="highlight">extensive network reach</span> with <span class="metric">${uniqueOrgs} unique organizations</span>, indicating comprehensive healthcare ecosystem coverage.</p>`;
+                } else if (uniqueOrgs > 50) {
+                    summary += `<p>The database shows <span class="highlight">solid network diversity</span> with <span class="metric">${uniqueOrgs} unique organizations</span> represented across your contacts.</p>`;
+                }
+                
+                // Recommendations
+                summary += `<p><strong>Next Steps:</strong> Your unified database is ready for import into CRM systems, patient management platforms, or provider directories. Consider implementing data governance policies to maintain quality as the database grows.</p>`;
+                
+                summaryContent.innerHTML = summary;
+                summarySection.style.display = 'block';
+                
             } catch (e) {
-                console.log('Error updating stats:', e);
+                console.log('Error generating AI summary:', e);
             }
         }
 
-        // File upload handlers
-        function setupFileHandlers() {
-            const fileInputs = ['sudFile', 'newContactsFile', 'nhContactsFile', 'justinFile', 'reportFile'];
-            
-            fileInputs.forEach(inputId => {
-                const input = document.getElementById(inputId);
-                const status = document.getElementById(inputId.replace('File', 'Status'));
-                
-                input.addEventListener('change', function(e) {
-                    const file = e.target.files[0];
-                    if (file) {
-                        uploadedFiles[inputId] = file;
-                        status.textContent = `✅ ${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
-                        status.className = 'file-status status-ready';
-                        log(`📁 File uploaded: ${file.name}`);
-                    } else {
-                        delete uploadedFiles[inputId];
-                        status.textContent = 'No file selected';
-                        status.className = 'file-status status-missing';
-                    }
-                });
-            });
+        // Legacy function for compatibility (redirects to AI summary)
+        function updateStats() {
+            generateAISummary();
         }
 
-        // Read file as array buffer
+        // File management functions
+        function getFileIcon(filename) {
+            const ext = filename.toLowerCase().split('.').pop();
+            switch (ext) {
+                case 'xlsx':
+                case 'xls':
+                    return '📊';
+                case 'docx':
+                    return '📄';
+                case 'txt':
+                    return '📝';
+                case 'csv':
+                    return '📋';
+                default:
+                    return '📁';
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function addFileToList(file) {
+            const fileId = `file_${++fileCounter}`;
+            uploadedFiles.set(fileId, file);
+            
+            const fileList = document.getElementById('fileList');
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.id = fileId;
+            
+            fileItem.innerHTML = `
+                <div class="file-info">
+                    <div class="file-icon">${getFileIcon(file.name)}</div>
+                    <div class="file-details">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${formatFileSize(file.size)} • ${file.type || 'Unknown type'}</div>
+                    </div>
+                </div>
+                <div class="file-status status-ready">Ready</div>
+                <button class="remove-btn" onclick="removeFile('${fileId}')" title="Remove file">×</button>
+            `;
+            
+            fileList.appendChild(fileItem);
+            updateUploadAlert();
+            log(`📁 Added file: ${file.name}`);
+        }
+
+        function removeFile(fileId) {
+            uploadedFiles.delete(fileId);
+            const fileElement = document.getElementById(fileId);
+            if (fileElement) {
+                fileElement.remove();
+            }
+            updateUploadAlert();
+            log(`🗑️ Removed file`);
+        }
+
+        function updateUploadAlert() {
+            const alert = document.getElementById('uploadAlert');
+            const fileCount = document.getElementById('fileCount');
+            const count = uploadedFiles.size;
+            
+            if (count > 0) {
+                fileCount.textContent = count;
+                alert.style.display = 'block';
+            } else {
+                alert.style.display = 'none';
+            }
+        }
+
+        // File input functions
+        function addFileInput() {
+            document.getElementById('hiddenFileInput').click();
+        }
+
+        function triggerFileInput() {
+            document.getElementById('hiddenFileInput').click();
+        }
+
+        function handleFileSelect(event) {
+            const files = Array.from(event.target.files);
+            files.forEach(file => {
+                // Check if file already exists
+                const exists = Array.from(uploadedFiles.values()).some(f => 
+                    f.name === file.name && f.size === file.size
+                );
+                
+                if (!exists) {
+                    addFileToList(file);
+                } else {
+                    log(`⚠️ File ${file.name} already uploaded`);
+                }
+            });
+            
+            // Reset the input
+            event.target.value = '';
+        }
+
+        // Drag and drop functionality
+        function setupDragAndDrop() {
+            const dropZone = document.getElementById('dropZone');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
+
+            dropZone.addEventListener('drop', handleDrop, false);
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function highlight() {
+                dropZone.classList.add('active');
+            }
+
+            function unhighlight() {
+                dropZone.classList.remove('active');
+            }
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = Array.from(dt.files);
+                
+                files.forEach(file => {
+                    const exists = Array.from(uploadedFiles.values()).some(f => 
+                        f.name === file.name && f.size === file.size
+                    );
+                    
+                    if (!exists) {
+                        addFileToList(file);
+                    }
+                });
+            }
+        }
+
+        // File reading functions
         function readFileAsArrayBuffer(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -522,7 +865,6 @@
             });
         }
 
-        // Read file as text
         function readFileAsText(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -562,6 +904,19 @@
             }
         }
 
+        function updateFileStatus(fileId, status, text) {
+            try {
+                const fileElement = document.getElementById(fileId);
+                if (fileElement) {
+                    const statusElement = fileElement.querySelector('.file-status');
+                    statusElement.className = `file-status status-${status}`;
+                    statusElement.textContent = text;
+                }
+            } catch (e) {
+                console.log('Error updating file status:', e);
+            }
+        }
+
         // Main database generation function
         async function generateCompleteDatabase() {
             if (isProcessing) {
@@ -569,7 +924,7 @@
                 return;
             }
 
-            if (Object.keys(uploadedFiles).length === 0) {
+            if (uploadedFiles.size === 0) {
                 alert('Please upload at least one file before generating the database!');
                 log('❌ No files uploaded');
                 return;
@@ -597,32 +952,19 @@
                 }
 
                 let processedFiles = 0;
-                const totalFiles = Object.keys(uploadedFiles).length;
+                const totalFiles = uploadedFiles.size;
 
                 // Process each uploaded file
-                for (const [inputId, file] of Object.entries(uploadedFiles)) {
+                for (const [fileId, file] of uploadedFiles) {
                     const progress = (processedFiles / totalFiles) * 90;
+                    updateProgress(progress, `Processing ${file.name}...`);
+                    updateFileStatus(fileId, 'processing', 'Processing...');
                     
-                    switch (inputId) {
-                        case 'sudFile':
-                            await processSUDWorkers(file);
-                            break;
-                        case 'newContactsFile':
-                            await processTextFile(file, 'New Contacts Document');
-                            break;
-                        case 'nhContactsFile':
-                            await processTextFile(file, 'NH Hospital Contacts');
-                            break;
-                        case 'justinFile':
-                            await processJustinReport(file);
-                            break;
-                        case 'reportFile':
-                            await processLargeReport(file);
-                            break;
-                    }
+                    await processFile(file, fileId);
                     
                     processedFiles++;
-                    updateProgress(progress, `Processed ${processedFiles}/${totalFiles} files...`);
+                    updateFileStatus(fileId, 'complete', 'Complete');
+                    generateAISummary();
                 }
 
                 updateProgress(100, 'Processing complete!');
@@ -641,7 +983,7 @@
                     log(`  ${cat}: ${count.toLocaleString()}`);
                 });
 
-                updateStats();
+                generateAISummary();
                 showSampleResults();
 
                 // Enable download buttons
@@ -661,51 +1003,166 @@
             }
         }
 
-        // Process SUD Workers file
-        async function processSUDWorkers(file) {
+        // Process individual file based on type
+        async function processFile(file, fileId) {
             try {
-                log(`📋 Processing ${file.name}...`);
+                const filename = file.name.toLowerCase();
+                const extension = filename.split('.').pop();
                 
-                const arrayBuffer = await readFileAsArrayBuffer(file);
-                const workbook = XLSX.read(arrayBuffer);
-                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                const data = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+                log(`📄 Processing ${file.name}...`);
+                
+                switch (extension) {
+                    case 'xlsx':
+                    case 'xls':
+                        await processExcelFile(file);
+                        break;
+                    case 'docx':
+                        await processWordFile(file);
+                        break;
+                    case 'txt':
+                        await processTextFile(file);
+                        break;
+                    case 'csv':
+                        await processCSVFile(file);
+                        break;
+                    default:
+                        // Try to process as text file
+                        await processTextFile(file);
+                        break;
+                }
+                
+                log(`✅ ${file.name}: Processing complete`);
+            } catch (error) {
+                log(`⚠️ Error processing ${file.name}: ${error.message}`);
+                updateFileStatus(fileId, 'error', 'Error');
+            }
+        }
 
-                let count = 0;
-                for (let i = 3; i < data.length; i++) {
-                    const row = data[i];
-                    if (row && row[0]) {
+        // Process Excel files
+        async function processExcelFile(file) {
+            const arrayBuffer = await readFileAsArrayBuffer(file);
+            const workbook = XLSX.read(arrayBuffer);
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            const data = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+
+            // Determine file type based on content structure
+            const isSUDWorkers = data.some(row => 
+                row && typeof row[0] === 'string' && 
+                (row[0].includes('Arlington') || row[0].includes('Recovery'))
+            );
+            
+            const isPatientData = data.some(row => 
+                row && (row[3] === 'BCBS' || row[3] === 'Amerihealth' || row[4] === 'Policy')
+            );
+
+            let count = 0;
+            for (let i = 1; i < data.length; i++) {
+                const row = data[i];
+                if (!row || !row[0]) continue;
+
+                if (isSUDWorkers && i >= 3) {
+                    // SUD Workers format
+                    allContacts.push({
+                        organization: cleanName(row[0]),
+                        title: cleanName(row[1]),
+                        name: cleanName(row[2]),
+                        phone: cleanPhoneNumber(row[3]),
+                        email: cleanEmail(row[4]),
+                        alternateContact: cleanName(row[5]),
+                        source: file.name,
+                        category: 'SUD Worker'
+                    });
+                    count++;
+                } else if (isPatientData) {
+                    // Patient data format
+                    const name = cleanName(row[1] || row[0]);
+                    const phone = cleanPhoneNumber(row[2]);
+                    const insurance = cleanName(row[3]);
+                    const policyId = cleanName(row[4]);
+                    
+                    if (name) {
                         allContacts.push({
-                            organization: cleanName(row[0]),
-                            title: cleanName(row[1]),
-                            name: cleanName(row[2]),
-                            phone: cleanPhoneNumber(row[3]),
-                            email: cleanEmail(row[4]),
-                            alternateContact: cleanName(row[5]),
-                            source: 'Community SUD Workers',
-                            category: 'SUD Worker'
+                            organization: insurance || 'Unknown Insurance',
+                            title: 'Patient/Client',
+                            name: name,
+                            phone: phone,
+                            email: '',
+                            alternateContact: policyId ? `Policy: ${policyId}` : '',
+                            source: file.name,
+                            category: 'Patient/Client'
+                        });
+                        count++;
+                    }
+                } else {
+                    // Generic Excel format - try to extract what we can
+                    const name = cleanName(row[0]);
+                    const phone1 = cleanPhoneNumber(row[2]);
+                    const phone2 = cleanPhoneNumber(row[3]);
+                    const insurance = cleanName(row[4]);
+                    const referringOrg = cleanName(row[7] || row[6] || row[5]);
+                    
+                    const primaryPhone = phone1 || phone2;
+                    
+                    if (name) {
+                        allContacts.push({
+                            organization: referringOrg || insurance || 'Unknown',
+                            title: 'Patient/Client',
+                            name: name,
+                            phone: primaryPhone,
+                            email: '',
+                            alternateContact: insurance || '',
+                            source: file.name,
+                            category: 'Patient/Client'
                         });
                         count++;
                     }
                 }
-                log(`✅ SUD Workers: ${count} records added`);
-            } catch (error) {
-                log(`⚠️ Error processing SUD Workers file: ${error.message}`);
             }
+            
+            log(`📊 Extracted ${count} contacts from Excel file`);
         }
 
-        // Process text files
-        async function processTextFile(file, source) {
-            try {
-                log(`📄 Processing ${file.name}...`);
+        // Process Word/text files
+        async function processWordFile(file) {
+            const text = await readFileAsText(file);
+            await processTextFile(file, text);
+        }
+
+        async function processTextFile(file, textContent = null) {
+            const text = textContent || await readFileAsText(file);
+            const contacts = parseTextContacts(text, file.name);
+            allContacts.push(...contacts);
+            log(`📝 Extracted ${contacts.length} contacts from text file`);
+        }
+
+        // Process CSV files
+        async function processCSVFile(file) {
+            const text = await readFileAsText(file);
+            const lines = text.split('\n');
+            const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+            
+            let count = 0;
+            for (let i = 1; i < lines.length; i++) {
+                const row = lines[i].split(',');
+                if (row.length < 2) continue;
                 
-                const text = await readFileAsText(file);
-                const contacts = parseTextContacts(text, source);
-                allContacts.push(...contacts);
-                log(`✅ ${source}: ${contacts.length} records added`);
-            } catch (error) {
-                log(`⚠️ Error processing ${file.name}: ${error.message}`);
+                const name = cleanName(row[0]);
+                if (name) {
+                    allContacts.push({
+                        organization: cleanName(row[1]) || 'Unknown',
+                        title: cleanName(row[2]) || 'Contact',
+                        name: name,
+                        phone: cleanPhoneNumber(row[3]),
+                        email: cleanEmail(row[4]),
+                        alternateContact: cleanName(row[5]),
+                        source: file.name,
+                        category: 'Contact'
+                    });
+                    count++;
+                }
             }
+            
+            log(`📋 Extracted ${count} contacts from CSV file`);
         }
 
         // Parse text contacts helper function
@@ -785,112 +1242,6 @@
             return contacts;
         }
 
-        // Process Justin Report
-        async function processJustinReport(file) {
-            try {
-                log(`🏥 Processing ${file.name}...`);
-                
-                const arrayBuffer = await readFileAsArrayBuffer(file);
-                const workbook = XLSX.read(arrayBuffer);
-                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                const data = XLSX.utils.sheet_to_json(worksheet, {header: 1});
-
-                let justinCount = 0;
-                for (let i = 1; i < data.length; i++) {
-                    const row = data[i];
-                    if (row && (row[1] || row[0])) {
-                        const name = cleanName(row[1] || row[0]);
-                        const phone = cleanPhoneNumber(row[2]);
-                        const insurance = cleanName(row[3]);
-                        const policyId = cleanName(row[4]);
-                        
-                        if (name) {
-                            allContacts.push({
-                                organization: insurance || 'Unknown Insurance',
-                                title: 'Patient/Client',
-                                name: name,
-                                phone: phone,
-                                email: '',
-                                alternateContact: policyId ? `Policy: ${policyId}` : '',
-                                source: 'Justin Report',
-                                category: 'Patient/Client'
-                            });
-                            justinCount++;
-                        }
-                    }
-                }
-                log(`✅ Justin Report: ${justinCount} patient records added`);
-            } catch (error) {
-                log(`⚠️ Error processing Justin Report: ${error.message}`);
-            }
-        }
-
-        // Process large report file
-        async function processLargeReport(file) {
-            try {
-                log(`📊 Processing ${file.name}...`);
-                
-                const arrayBuffer = await readFileAsArrayBuffer(file);
-                const workbook = XLSX.read(arrayBuffer);
-                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                
-                const range = XLSX.utils.decode_range(worksheet['!ref']);
-                const totalRows = range.e.r + 1;
-                log(`📊 Large report has ${totalRows.toLocaleString()} total rows`);
-                
-                // Process in chunks to avoid memory issues
-                const chunkSize = 1000;
-                let reportCount = 0;
-                
-                for (let startRow = 0; startRow < totalRows; startRow += chunkSize) {
-                    const endRow = Math.min(startRow + chunkSize - 1, range.e.r);
-                    const chunkRange = `A${startRow + 1}:H${endRow + 1}`;
-                    
-                    try {
-                        const chunkData = XLSX.utils.sheet_to_json(worksheet, {header: 1, range: chunkRange});
-                        
-                        for (let row of chunkData) {
-                            if (row && row[0]) {
-                                const name = cleanName(row[0]);
-                                const phone1 = cleanPhoneNumber(row[2]);
-                                const phone2 = cleanPhoneNumber(row[3]);
-                                const insurance = cleanName(row[4]);
-                                const altPhone = cleanPhoneNumber(row[5]);
-                                const referringOrg = cleanName(row[7]);
-                                
-                                const primaryPhone = phone1 || phone2 || altPhone;
-                                
-                                if (name) {
-                                    allContacts.push({
-                                        organization: referringOrg || insurance || 'Patient Records',
-                                        title: 'Patient/Client',
-                                        name: name,
-                                        phone: primaryPhone,
-                                        email: '',
-                                        alternateContact: insurance || '',
-                                        source: 'Report File',
-                                        category: 'Patient/Client'
-                                    });
-                                    reportCount++;
-                                }
-                            }
-                        }
-                        
-                        // Allow UI to update
-                        await new Promise(resolve => setTimeout(resolve, 10));
-                        
-                    } catch (chunkError) {
-                        log(`⚠️ Error in chunk ${startRow}-${endRow}: ${chunkError.message}`);
-                        break;
-                    }
-                }
-                
-                log(`✅ Large report: ${reportCount.toLocaleString()} patient records added`);
-            } catch (error) {
-                log(`⚠️ Error processing large report: ${error.message}`);
-            }
-        }
-
         // Download Excel file
         function downloadExcel() {
             if (allContacts.length === 0) {
@@ -943,6 +1294,7 @@
                     ['Master Contact Database Summary', ''],
                     ['Generated on:', new Date().toLocaleString()],
                     ['Total Contacts:', allContacts.length],
+                    ['Files Processed:', uploadedFiles.size],
                     ['', ''],
                     ['By Category:', ''],
                     ...Object.entries(byCategory).map(([cat, count]) => [cat, count]),
@@ -960,7 +1312,7 @@
                 summarySheet['!cols'] = [{ wch: 30 }, { wch: 15 }];
                 XLSX.utils.book_append_sheet(workbook, summarySheet, 'Summary');
                 
-                XLSX.writeFile(workbook, `Complete_Master_Contact_Database_${allContacts.length}_Records.xlsx`);
+                XLSX.writeFile(workbook, `Master_Contact_Database_${allContacts.length}_Records.xlsx`);
                 log(`✅ Excel file downloaded with ${allContacts.length.toLocaleString()} contacts!`);
             } catch (error) {
                 log(`❌ Error creating Excel file: ${error.message}`);
@@ -998,7 +1350,7 @@
                 const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = `Complete_Master_Contact_Database_${allContacts.length}_Records.csv`;
+                link.download = `Master_Contact_Database_${allContacts.length}_Records.csv`;
                 link.click();
                 
                 log(`✅ CSV file downloaded with ${allContacts.length.toLocaleString()} contacts!`);
@@ -1011,9 +1363,9 @@
         // Initialize when page loads
         window.addEventListener('load', function() {
             try {
-                setupFileHandlers();
+                setupDragAndDrop();
                 log('🎯 Master Contact Database Generator ready!');
-                log('📁 Upload your contact files above to get started.');
+                log('📁 Click the + button or drag & drop to upload files.');
                 log('✅ XLSX library loaded successfully');
             } catch (error) {
                 console.log('Initialization error:', error);
